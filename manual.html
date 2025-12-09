@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>คู่มือปฏิบัติงานเจ้าหน้าที่พัสดุ</title>
+
+    <style>
+        * {margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+        body {background-color:#f0f2f5;color:#333;line-height:1.6;transition:0.3s;}
+
+        /* --- Dark Mode --- */
+        body.dark {background-color:#1e1e1e;color:#e9e9e9;}
+        body.dark .container {background-color:#2b2b2b;color:#fff;}
+        body.dark nav {background-color:#333;}
+        body.dark nav a:hover {background-color:#444;}
+        body.dark .section-step {background-color:#2f2f2f;border-left-color:#66bb6a;}
+        body.dark .section-content {color:#e0e0e0;}
+        body.dark .section-step:hover {background-color:#3b3b3b;}
+
+        nav {
+            background-color:#4CAF50;
+            padding:15px 0;
+            text-align:center;
+            box-shadow:0 3px 6px rgba(0,0,0,0.1);
+            position:relative;
+        }
+
+        nav a {
+            color:white;text-decoration:none;
+            margin:0 12px;font-weight:bold;
+            padding:6px 10px;border-radius:5px;
+            transition:0.3s;
+        }
+        nav a:hover {background-color:#45a049;transform:translateY(-2px);}
+
+        /* ปุ่ม Dark Mode */
+        .dark-toggle {
+            position:absolute;
+            right:20px;
+            top:50%;
+            transform:translateY(-50%);
+            background:white;
+            border:none;
+            padding:6px 12px;
+            border-radius:20px;
+            font-weight:bold;
+            cursor:pointer;
+            transition:0.3s;
+        }
+        body.dark .dark-toggle {background:#666;color:#fff;}
+
+        .container {
+            max-width:1000px;margin:40px auto;padding:20px;
+            background-color:white;border-radius:12px;
+            box-shadow:0 10px 25px rgba(0,0,0,0.1);
+            transition:0.3s;
+        }
+
+        h1 {color:#4CAF50;margin-bottom:20px;text-align:center;}
+
+        .section-step {
+            position:relative;margin:25px 0;padding:18px 20px;
+            border-radius:10px;background-color:#f9f9f9;
+            cursor:pointer;transition:all 0.3s;
+            border-left:6px solid #4CAF50;font-size:1.1em;font-weight:bold;
+        }
+        .section-step:hover {background-color:#eef9f0;transform:scale(1.01);}
+        .section-content {margin-top:10px;padding-left:20px;display:none;font-weight:normal;}
+
+        .section-content p {margin:6px 0;}
+
+        /* เส้น animation ใต้หัวข้อ */
+        .section-step::after {
+            content:'';position:absolute;left:50%;bottom:-30px;
+            width:2px;height:28px;background:#4CAF50;
+            transform:translateX(-50%);
+            animation:pulse 1.5s infinite;
+        }
+        .section-step:last-child::after {display:none;}
+
+        @keyframes pulse {
+            0% {background:#4CAF50;}
+            50% {background:#81C784;}
+            100% {background:#4CAF50;}
+        }
+
+        @media(max-width:768px){
+            nav a {display:block;margin:8px 0;}
+            .dark-toggle {right:10px;}
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="about.html">เกี่ยวกับแผนก</a>
+        <a href="rule-cabinet.html">มติ ครม.</a>
+        <a href="rule-finance.html">ระเบียบคลัง</a>
+        <a href="rule-opm.html">ระเบียบสำนักนายกรัฐมนตรี</a>
+        <a href="rule-gppb.html">หนังสือคณะกรรมการนโยบายฯ</a>
+        <a href="rule-regulation.html">กฎกระทรวง</a>
+        <a href="rule-price.html">ราคากลาง</a>
+        <a href="rule-anticorruption.html">ป้องกันการทุจริต</a>
+        <a href="rule-opm-notice.html">ประกาศสำนักนายกรัฐมนตรี</a>
+        <a href="manual.html">คู่มือปฏิบัติงาน</a>
+        <a href="egp.html">ระบบ e-GP</a>
+        <a href="contract.html">สัญญาและหลักประกัน</a>
+
+        <!-- ปุ่ม Dark Mode -->
+        <button class="dark-toggle" id="toggleDark">🌙 Dark Mode</button>
+    </nav>
+
+    <div class="container">
+        <h1>📘 คู่มือปฏิบัติงานเจ้าหน้าที่พัสดุ</h1>
+
+        <!-- บทที่ 1 -->
+        <div class="section-step">บทที่ 1 : หน้าที่ของเจ้าหน้าที่พัสดุ
+            <div class="section-content">
+                <p>เจ้าหน้าที่พัสดุต้องปฏิบัติตาม พ.ร.บ. จัดซื้อจัดจ้างฯ 2560 ...</p>
+            </div>
+        </div>
+
+        <!-- บทที่ 2 -->
+        <div class="section-step">บทที่ 2 : ขั้นตอนงานจัดซื้อจัดจ้างภาครัฐแบบใช้งานจริง
+            <div class="section-content">
+                <p><strong>ขั้นตอนที่ 1 : การวางแผน (Procurement Plan)</strong><br> ...</p>
+                <p><strong>ขั้นตอนที่ 2 : แต่งตั้งคณะกรรมการจัดทำร่าง TOR</strong><br> ...</p>
+                <p><strong>ขั้นตอนที่ 3 : การจัดทำร่าง TOR</strong><br> ...</p>
+                <p><strong>ขั้นตอนที่ 4 : การกำหนดราคากลาง</strong><br> ...</p>
+                <p><strong>ขั้นตอนที่ 5 : การเปิดเผยร่าง TOR</strong><br> ...</p>
+            </div>
+        </div>
+
+        <!-- บทที่ 3–8 ทำเหมือนเดิม ... -->
+        <!-- ... -->
+    </div>
+
+<script>
+    /* Toggle แสดง/ซ่อนเนื้อหา */
+    document.querySelectorAll('.section-step').forEach(step => {
+        step.addEventListener('click', () => {
+            const content = step.querySelector('.section-content');
+            if(content){
+                content.style.display = content.style.display === 'block' ? 'none' : 'block';
+            }
+        });
+    });
+
+    /* --- Dark Mode --- */
+    const toggleBtn = document.getElementById('toggleDark');
+    const body = document.body;
+
+    // โหลดค่าจาก localStorage
+    if(localStorage.getItem('theme') === 'dark'){
+        body.classList.add('dark');
+        toggleBtn.textContent = "☀️ Light Mode";
+    }
+
+    toggleBtn.onclick = () => {
+        body.classList.toggle('dark');
+        const isDark = body.classList.contains('dark');
+
+        toggleBtn.textContent = isDark ? "☀️ Light Mode" : "🌙 Dark Mode";
+
+        // บันทึกโหมด
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    };
+</script>
+
+</body>
+</html>

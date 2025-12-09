@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>มติคณะรัฐมนตรี - กฎหมายจัดซื้อจัดจ้าง</title>
+
+    <style>
+    /* ===========================
+       RESET + BASE
+    ============================ */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+        background: #2f343d;
+        color: #333333;
+        line-height: 1.7;
+        transition: 0.3s;
+    }
+
+    /* ===========================
+       HEADER
+    ============================ */
+    .header-official {
+        background: white;
+        text-align: center;
+        padding: 30px 10px;
+        border-bottom: 3px solid #4CAF50;
+    }
+
+    .header-official img {
+        height: 85px;
+        margin-bottom: 10px;
+    }
+
+    .header-official h2 {
+        font-size: 1.9em;
+        font-weight: 700;
+    }
+
+    .header-official h3 {
+        color: #666;
+        font-size: 1.1em;
+    }
+
+    /* ===========================
+       DARK MODE BUTTON
+    ============================ */
+    .dark-toggle {
+        position: absolute;
+        top: 25px;
+        right: 25px;
+        background: #4CAF50;
+        color: white;
+        border: none;
+        padding: 10px 18px;
+        font-size: 15px;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: 0.3s;
+        font-weight: bold;
+    }
+
+    .dark-toggle:hover {
+        background: #45a049;
+    }
+
+    /* ===========================
+       NAV
+    ============================ */
+    nav {
+        background-color: #4CAF50;
+        padding: 16px 0;
+        text-align: center;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        margin: 0 22px;
+        font-weight: 600;
+        padding: 7px 10px;
+        transition: 0.25s;
+        border-radius: 5px;
+    }
+
+    nav a:hover {
+        background: rgba(255,255,255,0.2);
+    }
+
+    /* ===========================
+       MAIN CONTAINER
+    ============================ */
+    .container {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 30px;
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        transition: 0.3s;
+    }
+
+    .container h1 {
+        text-align: center;
+        color: #333;
+        font-size: 1.9em;
+        margin-bottom: 15px;
+    }
+
+    .title-line {
+        width: 160px;
+        height: 4px;
+        background: #4CAF50;
+        border-radius: 4px;
+        margin: 12px auto 30px;
+    }
+
+    /* ===========================
+       ACCORDION (Flowchart Style)
+    ============================ */
+    .flowchart-step {
+        padding: 18px;
+        border-radius: 10px;
+        background: #ffffff;
+        border-left: 6px solid #4CAF50;
+        margin: 15px 0;
+        cursor: pointer;
+        transition: 0.3s;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1.1em;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.07);
+    }
+
+    .flowchart-step:hover {
+        background: #f2fbf4;
+        transform: translateY(-2px);
+    }
+
+    /* Arrow Icon */
+    .step-arrow {
+        font-size: 20px;
+        transition: 0.3s;
+    }
+
+    .step-content {
+        margin-top: 12px;
+        padding: 15px 20px;
+        background: #fdfdfd;
+        border-radius: 8px;
+        display: none;
+        box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+        font-size: 1.05em;
+    }
+
+    .step-content ul {
+        margin-left: 20px;
+    }
+
+    /* ===========================
+          DARK MODE STYLE
+    ============================ */
+    body.dark {
+        background: #1d1f21;
+        color: #e8e8e8;
+    }
+
+    body.dark .container {
+        background: #282a2d;
+        color: #eee;
+        box-shadow: none;
+    }
+
+    body.dark nav {
+        background: #3d8b40;
+    }
+
+    body.dark .flowchart-step {
+        background: #2f3134;
+        color: #fff;
+    }
+
+    body.dark .step-content {
+        background: #26282b;
+    }
+
+    body.dark .footer-official {
+        background: #2b3a2b;
+        color: #eee;
+    }
+
+    @media(max-width:768px) {
+        nav a {
+            display: block;
+            margin: 10px 0;
+        }
+        .dark-toggle {
+            right: 10px;
+            top: 10px;
+        }
+    }
+    </style>
+</head>
+
+<body>
+
+    <!-- DARK MODE BUTTON -->
+    <button class="dark-toggle" id="darkBtn">Dark Mode</button>
+
+    <!-- HEADER -->
+    <div class="header-official">
+        <img src="doh-logo.png" alt="กรมทางหลวง">
+        <h2>กรมทางหลวง</h2>
+        <h3>แผนกพัสดุและสัญญา</h3>
+    </div>
+
+    <!-- NAV -->
+    <nav>
+        <a href="about.html">เกี่ยวกับแผนก</a>
+        <a href="rule-cabinet.html">มติ ครม.</a>
+        <a href="rule-finance.html">ระเบียบคลัง</a>
+        <a href="egp.html">ระบบ e-GP</a>
+        <a href="contract.html">สัญญาและหลักประกัน</a>
+    </nav>
+
+    <!-- CONTENT -->
+    <div class="container">
+        <h1>กฎ ระเบียบ มติคณะรัฐมนตรี ที่เกี่ยวกับการจัดซื้อจัดจ้างภาครัฐ</h1>
+        <div class="title-line"></div>
+
+        <!-- STEP 1 -->
+        <div class="flowchart-step">
+            1. ภาพรวมกฎหมายและมติ ครม.
+            <span class="step-arrow">▼</span>
+            <div class="step-content">
+                <p>ก่อนพูดถึงมติ ครม. ต้องเข้าใจโครงสร้างกฎหมายหลัก: พ.ร.บ. การจัดซื้อจัดจ้างและการบริหารพัสดุภาครัฐ พ.ศ. 2560 และระเบียบกระทรวงการคลังว่าด้วยการจัดซื้อจัดจ้าง</p>
+                <p>มติ ครม. ที่เกี่ยวข้องกับพัสดุ ยังคงใช้บังคับตราบเท่าที่ไม่ขัดหรือแย้งกับ พ.ร.บ. พัสดุ</p>
+            </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="flowchart-step">
+            2. นโยบายและกลไกกำกับ
+            <span class="step-arrow">▼</span>
+            <div class="step-content">
+                <ul>
+                    <li>มติ ครม. บางมติเป็นนโยบายเพื่อกำกับการจัดซื้อจัดจ้าง เช่น ราคากลางและความโปร่งใส</li>
+                    <li>คณะกรรมการนโยบาย (Policy Commission) ให้คำปรึกษาและชี้แนวทางการจัดซื้อจัดจ้าง</li>
+                    <li>คำสั่งหัวหน้า คสช. ที่ 11/2560 กำหนดคณะกรรมการตรวจสอบและติดตามการจัดซื้อจัดจ้าง ตั้งแต่แผนจนจบสัญญา</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="flowchart-step">
+            3. ตัวอย่างมติ ครม. สำคัญ
+            <span class="step-arrow">▼</span>
+            <div class="step-content">
+                <ul>
+                    <li>มติ ครม. 4 กุมภาพันธ์ 2568: อนุมัติหลักการร่างกฎกระทรวงเพื่อกำหนด “พัสดุที่รัฐส่งเสริมหรือสนับสนุน” และวิธีจัดซื้อจัดจ้าง</li>
+                    <li>มติ ครม. กฎกระทรวงจัดจ้างเฉพาะเจาะจง: ปรับสัดส่วนถือหุ้นรัฐวิสาหกิจไม่น้อยกว่า 50% เพื่อความโปร่งใส</li>
+                    <li>มติ ครม. ปรับปรุงหลักเกณฑ์การคำนวณราคากลางงานก่อสร้าง ให้สะท้อนต้นทุนจริง</li>
+                    <li>มติ ครม. เพิ่มความคล่องตัวระบบพัสดุอิเล็กทรอนิกส์ (e-GP)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- STEP 4 -->
+        <div class="flowchart-step">
+            4. ประเด็นสำคัญและจุดควรระวัง
+            <span class="step-arrow">▼</span>
+            <div class="step-content">
+                <ul>
+                    <li>ต้องสมดุลระหว่าง “ความคล่องตัว” กับ “ความโปร่งใส”</li>
+                    <li>ราคากลางเป็นหัวใจความคุ้มค่า หากต่ำเกินไปอาจเสี่ยงคุณภาพงานและทุจริต</li>
+                    <li>เพิ่มสัดส่วนถือหุ้นรัฐวิสาหกิจเมื่อจัดจ้างเฉพาะเจาะจง เพื่อลดผลประโยชน์ทับซ้อน</li>
+                    <li>สนับสนุนระบบอิเล็กทรอนิกส์ (e-GP) ลดเอกสารและลดโอกาสทุจริต</li>
+                    <li>มติ ครม. ไม่สามารถขัดกับ พ.ร.บ. พัสดุ หากขัดถือว่าไม่บังคับใช้</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- STEP 5 -->
+        <div class="flowchart-step">
+            5. สรุปมติ ครม. สำคัญที่ควรรู้
+            <span class="step-arrow">▼</span>
+            <div class="step-content">
+                <ul>
+                    <li>มติ ครม. ส่งเสริม e-procurement เพิ่มประสิทธิภาพ</li>
+                    <li>มติ ครม. ปรับราคากลางให้สะท้อนต้นทุนจริง</li>
+                    <li>เพิ่มสัดส่วนถือหุ้นรัฐวิสาหกิจเมื่อจัดจ้างเฉพาะเจาะจง</li>
+                    <li>มติ ครม. ตั้งคณะกรรมการกำกับตรวจสอบการจัดซื้อจัดจ้าง</li>
+                    <li>มติ ครม. เป็นกรอบนโยบายเสริม พ.ร.บ. + ระเบียบคลัง</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer-official">
+        © 2025 แผนกพัสดุและสัญญา | กรมทางหลวง  
+        <br>พัฒนาเพื่อใช้ภายในหน่วยงานเท่านั้น
+    </div>
+
+    <!-- SCRIPT -->
+    <script>
+        /* Accordion (Auto Close) */
+        const steps = document.querySelectorAll('.flowchart-step');
+
+        steps.forEach(step => {
+            step.addEventListener('click', () => {
+                
+                // ปิดอันอื่นก่อน
+                steps.forEach(other => {
+                    if (other !== step) {
+                        const otherContent = other.querySelector('.step-content');
+                        const otherArrow = other.querySelector('.step-arrow');
+                        if (otherContent) {
+                            otherContent.style.display = "none";
+                            otherArrow.style.transform = "rotate(0deg)";
+                        }
+                    }
+                });
+
+                const content = step.querySelector('.step-content');
+                const arrow = step.querySelector('.step-arrow');
+
+                if (content) {
+                    const isOpen = content.style.display === "block";
+                    content.style.display = isOpen ? "none" : "block";
+                    arrow.style.transform = isOpen ? "rotate(0deg)" : "rotate(180deg)";
+                }
+            });
+        });
+
+        /* Dark Mode */
+        const darkBtn = document.getElementById("darkBtn");
+
+        darkBtn.addEventListener("click", () => {
+            document.body.classList.toggle("dark");
+            darkBtn.textContent = 
+                document.body.classList.contains("dark") 
+                ? "Light Mode" 
+                : "Dark Mode";
+        });
+    </script>
+</body>
+</html>

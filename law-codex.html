@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>ประมวลกฎหมายว่าด้วยการจัดซื้อจัดจ้าง</title>
+
+    <style>
+        * {margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+        
+        body {
+            background-color:#f0f2f5;
+            color:#333;
+            line-height:1.6;
+            transition:0.3s;
+        }
+
+        /* 🔥 ปุ่ม Dark Mode มุมขวาบน — แบบตัวอย่างที่ 1 */
+        .toggle-darkmode {
+            position: fixed;
+            top: 18px;
+            right: 22px;
+            background: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 16px;
+            font-size: 16px;
+            border-radius: 50px;
+            cursor: pointer;
+            z-index: 9999;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: 0.3s;
+        }
+        .toggle-darkmode:hover {
+            transform: scale(1.05);
+            background:#444;
+        }
+
+        /* Navbar */
+        nav {
+            background-color:#4CAF50;
+            padding:15px 0;
+            text-align:center;
+            box-shadow:0 3px 6px rgba(0,0,0,0.1);
+        }
+        nav a {
+            color:white;
+            text-decoration:none;
+            margin:0 12px;
+            font-weight:bold;
+            padding:6px 10px;
+            border-radius:5px;
+            transition:0.3s;
+        }
+        nav a:hover {
+            background-color:#45a049;
+            transform:translateY(-2px);
+        }
+
+        /* Box Container */
+        .container {
+            max-width:1000px;
+            margin:40px auto;
+            padding:20px;
+            background-color:white;
+            border-radius:12px;
+            box-shadow:0 10px 25px rgba(0,0,0,0.1);
+            transition:0.3s;
+        }
+
+        h1 {
+            color:#4CAF50;
+            margin-bottom:20px;
+            text-align:center;
+        }
+
+        /* Step Blocks */
+        .section-step {
+            position:relative;
+            margin:25px 0;
+            padding:18px 20px;
+            border-radius:10px;
+            background-color:#f9f9f9;
+            cursor:pointer;
+            transition:all 0.3s;
+            border-left:6px solid #4CAF50;
+            font-size:1.1em;
+            font-weight:bold;
+        }
+        .section-step:hover {
+            background-color:#eef9f0;
+            transform:scale(1.01);
+        }
+        .section-content {
+            margin-top:10px;
+            padding-left:20px;
+            display:none;
+            font-weight:normal;
+        }
+
+        /* เส้น Animation ด้านล่างของแต่ละข้อ */
+        .section-step::after {
+            content:'';
+            position:absolute;
+            left:50%;
+            bottom:-30px;
+            width:2px;
+            height:28px;
+            background:#4CAF50;
+            transform:translateX(-50%);
+            animation:pulse 1.5s infinite;
+        }
+        .section-step:last-child::after {
+            display:none;
+        }
+
+        @keyframes pulse {
+            0% {background:#4CAF50;}
+            50% {background:#81C784;}
+            100% {background:#4CAF50;}
+        }
+
+        /* Responsive */
+        @media(max-width:768px) {
+            nav a {display:block;margin:8px 0;}
+        }
+
+        /* 🌙 DARK MODE STYLE */
+        body.dark {
+            background:#121212;
+            color:#e4e4e4;
+        }
+        body.dark .container {
+            background:#1e1e1e;
+            box-shadow:0 0 20px rgba(255,255,255,0.08);
+        }
+        body.dark nav {
+            background:#2e7d32;
+        }
+        body.dark .section-step {
+            background:#2a2a2a;
+            border-left-color:#66bb6a;
+        }
+        body.dark .section-step:hover {
+            background:#333;
+        }
+        body.dark .section-step::after {
+            background:#66bb6a;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- 🎉 ปุ่ม Dark Mode ที่มุมขวาบน -->
+<button class="toggle-darkmode" id="darkBtn">🌓</button>
+
+<nav>
+    <a href="about.html">เกี่ยวกับแผนก</a>
+    <a href="rule-cabinet.html">มติ ครม.</a>
+    <a href="rule-finance.html">ระเบียบคลัง</a>
+    <a href="rule-opm.html">ระเบียบสำนักนายกรัฐมนตรี</a>
+    <a href="rule-gppb.html">หนังสือคณะกรรมการนโยบายฯ</a>
+    <a href="rule-regulation.html">กฎกระทรวง</a>
+    <a href="rule-price.html">ราคากลาง</a>
+    <a href="rule-anticorruption.html">ป้องกันการทุจริต</a>
+    <a href="rule-opm-notice.html">ประกาศสำนักนายกรัฐมนตรี</a>
+    <a href="manual.html">คู่มือปฏิบัติงาน</a>
+    <a href="law-codex.html">ประมวลกฎหมาย</a>
+    <a href="egp.html">ระบบ e-GP</a>
+    <a href="contract.html">สัญญาและหลักประกัน</a>
+</nav>
+
+<div class="container">
+    <h1>📘 ประมวลกฎหมายว่าด้วยการจัดซื้อจัดจ้าง</h1>
+
+    <!-- 0 -->
+    <div class="section-step">
+        สาระสำคัญของประมวลกฎหมายจัดซื้อจัดจ้าง
+        <div class="section-content">
+            <p>รวม พ.ร.บ. 2560, กฎกระทรวง, ระเบียบ, ประกาศ, คำสั่ง และแนวปฏิบัติของกรมบัญชีกลาง ครบทุกหมวด–มาตรา</p>
+        </div>
+    </div>
+
+    <!-- 1 -->
+    <div class="section-step">
+        1. หลักการใหญ่ของกฎหมาย (มาตรา 6)
+        <div class="section-content">
+            <p>หลัก 7 ประการ: คุ้มค่า โปร่งใส ตรวจสอบได้ แข่งขันเป็นธรรม ไม่มีผูกขาด มีประสิทธิภาพ และรับผิดชอบผลประโยชน์รัฐ</p>
+        </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="section-step">
+        2. หน่วยงานของรัฐที่อยู่ภายใต้กฎหมาย
+        <div class="section-content">
+            <p>กระทรวง ทบวง กรม อปท. รัฐวิสาหกิจ มหาวิทยาลัยของรัฐ หน่วยงานใช้เงินงบ/เงินกู้/เงินบริจาคที่รัฐกำกับ</p>
+        </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="section-step">
+        3. ประเภทของพัสดุและวิธีดำเนินการ
+        <div class="section-content">
+            <p>ประกอบด้วย การจัดซื้อ การจัดจ้าง การเช่า และการบริหารพัสดุคงคลัง</p>
+        </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="section-step">
+        4. ขั้นตอนการจัดซื้อจัดจ้างภาครัฐ (ครบ 7 ขั้นตอน)
+        <div class="section-content">
+            <p>4.1 วางแผนและความต้องการ</p>
+            <p>4.2 แต่งตั้งคณะกรรมการ</p>
+            <p>4.3 จัดทำร่าง TOR</p>
+            <p>4.4 กำหนดราคากลาง</p>
+            <p>4.5 เลือกวิธีจัดซื้อ 5 วิธี</p>
+            <p>4.6 ตรวจรับและทำสัญญา</p>
+            <p>4.7 บริหารสัญญา</p>
+        </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="section-step">
+        5. หน้าที่และความรับผิดชอบของเจ้าหน้าที่
+        <div class="section-content">
+            <p>ต้องเปิดเผยข้อมูล ปฏิบัติตามกฎหมาย ห้ามเอื้อประโยชน์ ฝ่าฝืนมีโทษและความรับผิด</p>
+        </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="section-step">
+        6. TOR และเอกสารประกวดราคา
+        <div class="section-content">
+            <p>ต้องกำหนดสเปกที่ไม่ผูกขาด เปิดเผยร่าง TOR ไม่น้อยกว่า 3 วัน</p>
+        </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="section-step">
+        7. การเปิดเผยข้อมูลต่อสาธารณะ
+        <div class="section-content">
+            <p>ต้องเปิดเผยแผน ราคากลาง ร่าง TOR ผลการจัดซื้อ ฯลฯ ในระบบ e-GP</p>
+        </div>
+    </div>
+
+    <!-- 8 -->
+    <div class="section-step">
+        8. การอุทธรณ์และร้องเรียน
+        <div class="section-content">
+            <p>อุทธรณ์ได้ภายใน 7 วัน หน่วยงานต้องตอบภายใน 30 วัน</p>
+        </div>
+    </div>
+
+    <!-- 9 -->
+    <div class="section-step">
+        9. โทษและมาตรการ
+        <div class="section-content">
+            <p>โทษสำหรับเจ้าหน้าที่ ผู้รับจ้าง ผู้เสนอราคา (ฮั้วประมูล) รวมถึงเพิกถอนสิทธิใน e-GP</p>
+        </div>
+    </div>
+
+    <!-- 10 -->
+    <div class="section-step">
+        10. กฎหมายลูกที่ใช้ควบคู่
+        <div class="section-content">
+            <p>ระเบียบ พ.ศ. 2560, กฎกระทรวง, คู่มือสัญญา, ประกาศราคากลาง และแนวปฏิบัติต่าง ๆ</p>
+        </div>
+    </div>
+
+    <!-- 11 -->
+    <div class="section-step">
+        11. ขั้นตอนแบบภาพรวม
+        <div class="section-content">
+            <p>วางแผน → TOR → ราคากลาง → เชิญชวน → พิจารณา → สัญญา → ตรวจรับ → ปิดงาน</p>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    /* เปิด-ปิดเนื้อหาแต่ละข้อ */
+    const steps = document.querySelectorAll('.section-step');
+    steps.forEach(step => {
+        step.addEventListener('click', () => {
+            const content = step.querySelector('.section-content');
+            content.style.display = content.style.display === 'block' ? 'none' : 'block';
+        });
+    });
+
+    /* Dark Mode */
+    const btn = document.getElementById('darkBtn');
+    btn.addEventListener('click', () => {
+        document.body.classList.toggle('dark');
+    });
+</script>
+
+</body>
+</html>

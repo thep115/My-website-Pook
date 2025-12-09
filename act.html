@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>พระราชบัญญัติ (พรบ.) - กฎหมายจัดซื้อจัดจ้าง | แผนกพัสดุและสัญญา</title>
+    <style>
+        /* ==========================
+           RESET + BASE
+        ===========================*/
+        * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        html,body { height:100%; }
+        body {
+            background:#f5f7fb;
+            color:#222;
+            line-height:1.7;
+            transition: background 0.25s, color 0.25s;
+            padding-bottom:40px;
+        }
+
+        /* = Header */
+        .header-official {
+            background: #fff;
+            text-align: center;
+            padding: 26px 12px;
+            border-bottom: 3px solid #4CAF50;
+            position: relative;
+        }
+        .header-official img { height:70px; display:block; margin:0 auto 6px; }
+        .header-official h2 { font-size:1.6rem; font-weight:700; }
+        .header-official h3 { color:#666; font-size:1rem; margin-top:4px; }
+
+        /* Dark toggle */
+        .dark-toggle {
+            position: absolute;
+            top:18px;
+            right:18px;
+            background:#4CAF50;
+            color:#fff;
+            border:none;
+            padding:8px 14px;
+            border-radius:22px;
+            cursor:pointer;
+            font-weight:700;
+            transition: background 0.18s, transform 0.12s;
+        }
+        .dark-toggle:active { transform:translateY(1px); }
+
+        /* = Navigation */
+        nav {
+            background-color:#4CAF50;
+            padding:12px 0;
+            text-align:center;
+            box-shadow:0 3px 6px rgba(0,0,0,0.08);
+        }
+        nav a {
+            color:#fff;
+            text-decoration:none;
+            margin:0 16px;
+            font-weight:600;
+            padding:7px 10px;
+            transition: background 0.2s, transform 0.12s;
+            border-radius:6px;
+            display:inline-block;
+        }
+        nav a:hover { background: rgba(255,255,255,0.14); transform:translateY(-3px); }
+
+        /* = Container */
+        .container {
+            max-width:980px;
+            margin:30px auto;
+            padding:28px;
+            background:#fff;
+            border-radius:14px;
+            box-shadow:0 10px 30px rgba(0,0,0,0.08);
+            transition: background 0.25s, color 0.25s, box-shadow 0.25s;
+        }
+        .container h1 {
+            text-align:center;
+            color:#2e7d32;
+            font-size:1.6rem;
+            margin-bottom:8px;
+        }
+        .title-line { width:140px; height:4px; background:#4CAF50; border-radius:4px; margin:10px auto 22px; }
+
+        /* = Section / Flowchart Steps (Accordion) */
+        .section-step {
+            padding:16px 18px;
+            border-radius:10px;
+            background:#fbfbfb;
+            border-left:6px solid #4CAF50;
+            margin:14px 0;
+            cursor:pointer;
+            transition: transform 0.18s, background 0.18s, box-shadow 0.18s;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:12px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+        }
+        .section-step:hover { transform:translateY(-4px); background:#f2fbf4; }
+        .section-main { flex:1; text-align:left; font-weight:600; font-size:1.03rem; color:#214b22; }
+        .section-arrow {
+            font-size:18px;
+            transition: transform 0.25s;
+            user-select:none;
+        }
+
+        .section-content {
+            margin-top:10px;
+            padding:14px 18px;
+            background:#fff;
+            border-radius:8px;
+            display:none;
+            box-shadow: inset 0 0 6px rgba(0,0,0,0.03);
+            color:#333;
+        }
+        .section-content p { margin:6px 0; line-height:1.6; font-size:0.98rem; }
+
+        /* Badges */
+        .badge { display:inline-block; padding:4px 9px; border-radius:6px; color:#fff; font-size:0.88rem; margin-right:8px; vertical-align:middle; }
+        .badge-section { background:#1976d2; }
+        .badge-article { background:#fb8c00; }
+
+        /* vertical connector line for step blocks */
+        .section-step::after {
+            content:'';
+            position:absolute;
+            left:50%;
+            bottom:-28px;
+            width:2px;
+            height:28px;
+            background:#4CAF50;
+            transform:translateX(-50%);
+            animation: pulse 1.6s infinite;
+        }
+        .section-step:last-of-type::after { display:none; }
+        @keyframes pulse { 0%{background:#4CAF50;}50%{background:#81C784;}100%{background:#4CAF50;} }
+
+        /* = Footer */
+        .footer-official {
+            text-align:center;
+            padding:18px;
+            background:#e8f5e9;
+            margin:26px auto 8px;
+            font-size:0.92rem;
+            border-top:3px solid #4CAF50;
+            max-width:980px;
+            border-radius:0 0 12px 12px;
+        }
+
+        /* Responsive */
+        @media(max-width:860px){
+            .container { margin:18px 16px; padding:18px; }
+            nav a { margin:6px 8px; display:inline-block; }
+            .dark-toggle { top:12px; right:12px; padding:7px 12px; }
+        }
+        @media(max-width:520px){
+            .section-step { padding:14px; flex-direction:column; align-items:flex-start; gap:8px; }
+            .section-step::after { left:14px; transform:translateX(0); }
+        }
+
+        /* = DARK THEME */
+        body.dark {
+            background: #121315;
+            color: #e6e6e6;
+        }
+        body.dark .container {
+            background:#1f2224;
+            color:#eaeaea;
+            box-shadow:none;
+        }
+        body.dark nav { background:#2e7d32; }
+        body.dark .header-official { background:#111; border-bottom-color:#2e7d32; }
+        body.dark .section-step { background:#232526; color:#eaeaea; border-left-color:#2e7d32; box-shadow:none; }
+        body.dark .section-step:hover { background:#2a2c2e; transform:none; }
+        body.dark .section-content { background:#1d1f20; color:#ddd; box-shadow:none; }
+        body.dark .footer-official { background:#122113; color:#dfeee0; border-top-color:#2e7d32; }
+
+        /* small helper text */
+        .meta-small { font-size:0.86rem; color:#666; margin-bottom:12px; text-align:center; }
+        body.dark .meta-small { color:#bfc9bf; }
+
+        /* Focus styles keyboard */
+        .section-step:focus { outline:3px solid rgba(76,175,80,0.22); outline-offset:3px; }
+        .dark-toggle:focus, nav a:focus { outline: 3px solid rgba(255,255,255,0.12); outline-offset:2px; }
+    </style>
+</head>
+<body>
+    <!-- Dark mode button is placed inside header for consistent position -->
+    <header class="header-official" role="banner">
+        <button id="darkBtn" class="dark-toggle" aria-pressed="false">Dark Mode</button>
+        <img src="doh-logo.png" alt="โลโก้กรมทางหลวง (ตัวอย่าง)">
+        <h2>กรมทางหลวง</h2>
+        <h3>แผนกพัสดุและสัญญา</h3>
+    </header>
+
+    <nav role="navigation" aria-label="เมนูหลัก">
+        <a href="about.html">เกี่ยวกับแผนก</a>
+        <a href="rule-cabinet.html">มติ ครม.</a>
+        <a href="rule-finance.html">ระเบียบคลัง</a>
+        <a href="act.html" aria-current="page" style="background: rgba(255,255,255,0.06);">พรบ.</a>
+        <a href="egp.html">e-GP</a>
+        <a href="contract.html">สัญญา</a>
+    </nav>
+
+    <main class="container" role="main">
+        <h1>พระราชบัญญัติ (พรบ.) การจัดซื้อจัดจ้าง</h1>
+        <div class="title-line" aria-hidden="true"></div>
+        <div class="meta-small">หน้าแสดงโครงหมวด/มาตรา — แตะหรือกด Enter เพื่อขยาย/ย่อรายละเอียด</div>
+
+        <!-- หมวด 1 -->
+        <section class="section-wrapper" aria-label="หมวด 1">
+            <div class="section-step" tabindex="0" role="button" aria-expanded="false">
+                <div class="section-main">หมวด 1 – บททั่วไป (มาตรา 1–10)</div>
+                <div class="section-arrow" aria-hidden="true">▾</div>
+            </div>
+            <div class="section-content" hidden>
+                <p><span class="badge badge-article">มาตรา 1-2</span>ชื่อกฎหมาย, ขอบเขตการบังคับใช้</p>
+                <p><span class="badge badge-article">มาตรา 3-4</span>วัตถุประสงค์, นิยามสำคัญ</p>
+                <p><span class="badge badge-article">มาตรา 5–10</span>เปิดเผยข้อมูล, แผนจัดซื้อจัดจ้างประจำปี, กฎกระทรวง, หน้าที่ของรัฐมนตรีว่าการ</p>
+            </div>
+        </section>
+
+        <!-- หมวด 2 -->
+        <section class="section-wrapper" aria-label="หมวด 2">
+            <div class="section-step" tabindex="0" role="button" aria-expanded="false">
+                <div class="section-main">หมวด 2 – คณะกรรมการ (มาตรา 11–23)</div>
+                <div class="section-arrow">▾</div>
+            </div>
+            <div class="section-content" hidden>
+                <p><span class="badge badge-article">มาตรา 11–23</span>คณะกรรมการนโยบาย, ราคากลาง, การวินิจฉัยปัญหาและแนวทางการกำกับดูแล</p>
+            </div>
+        </section>
+
+        <!-- หมวด 3 -->
+        <section class="section-wrapper" aria-label="หมวด 3">
+            <div class="section-step" tabindex="0" role="button" aria-expanded="false">
+                <div class="section-main">หมวด 3 – ประเภทพัสดุ (มาตรา 24–31)</div>
+                <div class="section-arrow">▾</div>
+            </div>
+            <div class="section-content" hidden>
+                <p><span class="badge badge-article">มาตรา 24–31</span>ประเภทงาน: ก่อสร้าง, ที่ปรึกษา, ออกแบบ, บริการ, ครุภัณฑ์, วัสดุ</p>
+            </div>
+        </section>
+
+        <!-- หมวด 4 -->
+        <section class="section-wrapper" aria-label="หมวด 4">
+            <div class="section-step" tabindex="0" role="button" aria-expanded="false">
+                <div class="section-main">หมวด 4 – วิธีการจัดซื้อจัดจ้าง (มาตรา 32–60)</div>
+                <div class="section-arrow">▾</div>
+            </div>
+            <div class="section-content" hidden>
+                <p><span class="badge badge-article">มาตรา 32–54</span>หลักเกณฑ์ทั่วไป, วิธีการประกวดราคา, TOR</p>
+                <p><span class="badge badge-article">มาตรา 55–60</span>e-Bidding, การคัดเลือก, เฉพาะเจาะจง, ขั้นตอนการประกวดราคา, ข้อกำหนดสัญญา</p>
+            </div>
+        </section>
+
+        <!-- หมวด 5 -->
+        <section class="section-wrapper" aria-label="หมวด 5">
+            <div class="section-step" tabindex="0" role="button" aria-expanded="false">
+                <div class="section-main">หมวด 5 – คณะกรรมการจัดซื้อจัดจ้าง (มาตรา 61–65)</div>
+                <div class="section-arrow">▾</div>
+            </div>
+            <div class="section-content" hidden>
+                <p><span class="badge badge-article">มาตรา 61–65</span>คุณสมบัติ, ส่วนได้เสีย, การแต่งตั้ง, การตรวจสอบการปฏิบัติ</p>
+            </div>
+        </section>
+
+        <!-- หมวด 6 -->
+        <section class="section-wrapper" aria-label="หมวด 6">
+            <div class="section-step" tabindex="0" role="button" aria-expanded="false">
+                <div class="section-main">หมวด 6 – ราคากลาง (มาตรา 66–70)</div>
+                <div class="section-arrow">▾</div>
+            </div>
+            <div class="section-content" hidden>
+                <p><span class="badge badge-article">มาตรา 66–70</span>หลักการพื้นฐานการคำนวณราคากลาง, แหล่งข้อมูล, การเปิดเผยราคากลาง</p>
+            </div>
+        </section>
+
+        <!-- ตัวอย่างเขตเพิ่มเติม (สามารถเพิ่มต่อได้) -->
+        <section class="section-wrapper" aria-label="เพิ่มเติม">
+            <div class="section-step" tabindex="0" role="button" aria-expanded="false">
+                <div class="section-main">หมวด 7 – การพิจารณาคดีและการอุทธรณ์ (ตัวอย่าง)</div>
+                <div class="section-arrow">▾</div>
+            </div>
+            <div class="section-content" hidden>
+                <p>ตัวอย่างเนื้อหา: แนวทางการร้องเรียน, ขั้นตอนอุทธรณ์, บทลงโทษ</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-official" role="contentinfo">
+        © 2025 แผนกพัสดุและสัญญา | กรมทางหลวง &nbsp;•&nbsp; พัฒนาเพื่อใช้ภายในหน่วยงานเท่านั้น
+    </footer>
+
+    <script>
+        // ----------------------------
+        // Dark Mode (เก็บสถานะใน localStorage)
+        // ----------------------------
+        const darkBtn = document.getElementById('darkBtn');
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const saved = localStorage.getItem('dh_dark_mode');
+
+        function applyDarkMode(val) {
+            if(val) {
+                document.body.classList.add('dark');
+                darkBtn.textContent = 'Light Mode';
+                darkBtn.setAttribute('aria-pressed','true');
+            } else {
+                document.body.classList.remove('dark');
+                darkBtn.textContent = 'Dark Mode';
+                darkBtn.setAttribute('aria-pressed','false');
+            }
+        }
+
+        // initial
+        if (saved === '1') applyDarkMode(true);
+        else if (saved === '0') applyDarkMode(false);
+        else applyDarkMode(prefersDark);
+
+        darkBtn.addEventListener('click', () => {
+            const isDark = document.body.classList.toggle('dark');
+            localStorage.setItem('dh_dark_mode', isDark ? '1' : '0');
+            applyDarkMode(isDark);
+        });
+
+        // ----------------------------
+        // Accessible Accordion behavior
+        // - Each .section-step (button) controls the next sibling .section-content
+        // - Supports click and keyboard (Enter / Space)
+        // ----------------------------
+        document.querySelectorAll('.section-step').forEach(step => {
+            const content = step.nextElementSibling;
+            const arrow = step.querySelector('.section-arrow');
+
+            // helper to open/close
+            function toggle(open) {
+                const isOpen = content && !content.hasAttribute('hidden');
+                const willOpen = (typeof open === 'boolean') ? open : !isOpen;
+
+                if (content) {
+                    if (willOpen) {
+                        content.removeAttribute('hidden');
+                        content.style.display = 'block';
+                        step.setAttribute('aria-expanded','true');
+                        arrow.style.transform = 'rotate(180deg)';
+                    } else {
+                        content.setAttribute('hidden','');
+                        content.style.display = 'none';
+                        step.setAttribute('aria-expanded','false');
+                        arrow.style.transform = 'rotate(0deg)';
+                    }
+                }
+            }
+
+            // click
+            step.addEventListener('click', (e) => {
+                // prevent click from toggling when clicking links inside (if any)
+                if (e.target.tagName.toLowerCase() === 'a') return;
+                toggle();
+            });
+
+            // keyboard (Enter/Space)
+            step.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggle();
+                }
+                // Expand with ArrowDown, collapse with ArrowUp (optional)
+                if (e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    toggle(true);
+                }
+                if (e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    toggle(false);
+                }
+            });
+        });
+
+        // Optional: restore previously opened sections per session (simple example)
+        // We won't store expand state long-term to avoid complexity, but can add if needed.
+    </script>
+</body>
+</html>

@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ระบบ e-GP / E-Bidding - กฎหมายจัดซื้อจัดจ้าง</title>
+
+    <style>
+    /* ===========================
+       RESET + BASE
+    ============================ */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+        background: #f5f7fb;
+        color: #333;
+        line-height: 1.7;
+        transition: 0.3s;
+    }
+
+    /* ===========================
+       HEADER (คงโครงสร้างเดิม)
+    ============================ */
+    .header-official {
+        background: white;
+        text-align: center;
+        padding: 30px 10px;
+        border-bottom: 3px solid #4CAF50;
+    }
+
+    .header-official img {
+        height: 85px;
+        margin-bottom: 10px;
+    }
+
+    .header-official h2 {
+        font-size: 1.9em;
+        font-weight: 700;
+    }
+
+    .header-official h3 {
+        color: #666;
+        font-size: 1.1em;
+    }
+
+    /* ===========================
+       DARK MODE BUTTON (เพิ่มใหม่)
+    ============================ */
+    .dark-toggle {
+        position: absolute;
+        top: 25px;
+        right: 25px;
+        background: #4CAF50;
+        color: white;
+        border: none;
+        padding: 10px 18px;
+        font-size: 15px;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: 0.3s;
+        font-weight: bold;
+    }
+
+    .dark-toggle:hover {
+        background: #45a049;
+    }
+
+    /* ===========================
+       NAVIGATION (โครงสร้างเดิม)
+    ============================ */
+    nav {
+        background-color: #4CAF50;
+        padding: 16px 0;
+        text-align: center;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        margin: 0 22px;
+        font-weight: 600;
+        padding: 7px 10px;
+        transition: 0.25s;
+        border-radius: 5px;
+    }
+
+    nav a:hover {
+        background: rgba(255,255,255,0.2);
+    }
+
+    /* ===========================
+       MAIN CONTAINER
+    ============================ */
+    .container {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 30px;
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        transition: 0.3s;
+    }
+
+    .container h1 {
+        text-align: center;
+        color: #333;
+        font-size: 1.9em;
+        margin-bottom: 15px;
+    }
+
+    .title-line {
+        width: 130px;
+        height: 4px;
+        background: #4CAF50;
+        border-radius: 4px;
+        margin: 10px auto 25px;
+    }
+
+    /* ===========================
+       FLOWCHART (โครงสร้างเดิม)
+    ============================ */
+    .flowchart-step {
+        padding: 18px;
+        border-radius: 10px;
+        background: #ffffff;
+        border-left: 6px solid #4CAF50;
+        margin: 15px 0;
+        cursor: pointer;
+        transition: 0.3s;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1.1em;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.07);
+    }
+
+    .flowchart-step:hover {
+        background: #f2fbf4;
+        transform: translateY(-2px);
+    }
+
+    .step-arrow {
+        font-size: 20px;
+        transition: 0.3s;
+    }
+
+    .step-content {
+        margin-top: 12px;
+        padding: 15px 20px;
+        background: #fdfdfd;
+        border-radius: 8px;
+        display: none;
+        box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+    }
+
+    .step-content p {
+        margin: 6px 0;
+    }
+
+    .badge {
+        padding: 3px 10px;
+        border-radius: 6px;
+        color: white;
+        font-size: 0.9em;
+    }
+
+    .badge-material { background: #2196F3; }
+    .badge-contract { background: #FF9800; }
+
+    /* ===========================
+       FOOTER
+    ============================ */
+    .footer-official {
+        text-align: center;
+        padding: 30px;
+        background: #e8f5e9;
+        margin-top: 40px;
+        font-size: 0.9em;
+        border-top: 3px solid #4CAF50;
+    }
+
+    /* ===========================
+          DARK MODE STYLE
+    ============================ */
+    body.dark {
+        background: #1d1f21;
+        color: #e8e8e8;
+    }
+
+    body.dark .container {
+        background: #282a2d;
+        color: #eee;
+        box-shadow: none;
+    }
+
+    body.dark nav {
+        background: #3d8b40;
+    }
+
+    body.dark .flowchart-step {
+        background: #2f3134;
+        color: #fff;
+    }
+
+    body.dark .step-content {
+        background: #26282b;
+    }
+
+    body.dark .footer-official {
+        background: #2b3a2b;
+        color: #eee;
+    }
+
+    @media(max-width:768px) {
+        nav a {
+            display: block;
+            margin: 10px 0;
+        }
+        .dark-toggle {
+            right: 10px;
+            top: 10px;
+        }
+    }
+    </style>
+</head>
+
+<body>
+
+    <button class="dark-toggle" id="darkBtn">Dark Mode</button>
+
+    <div class="header-official">
+        <img src="doh-logo.png" alt="กรมทางหลวง">
+        <h2>กรมทางหลวง</h2>
+        <h3>แผนกพัสดุและสัญญา</h3>
+    </div>
+
+    <nav>
+        <a href="about.html">เกี่ยวกับแผนก</a>
+        <a href="rule-cabinet.html">มติ ครม.</a>
+        <a href="rule-finance.html">ระเบียบคลัง</a>
+        <a href="egp.html">ระบบ e-GP</a>
+        <a href="contract.html">สัญญาและหลักประกัน</a>
+    </nav>
+
+    <div class="container">
+        <h1>ระบบ e-GP / E-Bidding - กฎหมายจัดซื้อจัดจ้าง</h1>
+        <div class="title-line"></div>
+
+        <!-- FLOWCHART STEPS (1–14 แบบ Example A) -->
+
+<!-- STEP 1 -->
+<div class="flowchart-step">
+    1. คัดเลือกผู้ชนะ
+    <span class="step-arrow">▼</span>
+    <div class="step-content">
+        <p><span class="badge badge-material">พัสดุ</span> ออกใบสั่งซื้อ (PO)</p>
+        <p><span class="badge badge-contract">สัญญา</span> จัดทำสัญญา / ข้อตกลง</p>
+        <p><span class="badge badge-legal">กฎหมาย</span> ตรวจสอบความถูกต้องตามระเบียบ</p>
+    </div>
+</div>
+
+<!-- STEP 2 -->
+<div class="flowchart-step">
+    2. จัดทำร่างขอบเขตงาน (TOR)
+    <span class="step-arrow">▼</span>
+    <div class="step-content">
+        <p><span class="badge badge-material">พัสดุ</span> ตรวจสอบเอกสารประกอบ TOR</p>
+        <p><span class="badge badge-contract">สัญญา</span> ให้ข้อสังเกตด้านเงื่อนไขผูกพัน</p>
+        <p><span class="badge badge-legal">กฎหมาย</span> ตรวจสอบอ้างอิงกฎหมายที่เกี่ยวข้อง</p>
+    </div>
+</div>
+
+<!-- STEP 3 -->
+<div class="flowchart-step">
+    3. ขออนุมัติร่าง TOR และราคากลาง
+    <span class="step-arrow">▼</span>
+    <div class="step-content">
+        <p><span class="badge badge-material">พัสดุ</span> ตรวจสอบราคาอ้างอิง</p>
+        <p><span class="badge badge-legal">กฎหมาย</span> รับรองความโปร่งใสของวิธีจัดหา</p>
+    </div>
+</div>
+
+<!-- STEP 4 -->
+<div class="flowchart-step">
+    4. ประกาศเชิญชวน e-GP
+    <span class="step-arrow">▼</span>
+    <div class="step-content">
+        <p><span class="badge badge-material">พัสดุ</span> ดำเนินการประกาศในระบบ e-GP</p>
+        <p><span class="badge badge-legal">กฎหมาย</span> ตรวจสอบระยะเวลาและรูปแบบประกาศ</p>
+    </div>
+</div>
+
+<!-- STEP 5 -->
+<div class="flowchart-step">
+    5. เปิดรับฟังความคิดเห็น (ถ้ามี)
+    <span class="step-arrow">▼</span>
+    <div class="step-content">
+        <p><span class="badge badge-material">พัสดุ</span> รับข้อมูลที่ผู้ประกอบการท้วงติง</p>
+        <p><span class="badge badge-legal">กฎหมาย</span> พิจารณาความเหมาะสมตามระเบียบ</p>
+    </div>
+</div>
+
+<!-- STEP 6 -->
+<div class="flowchart-step">
+    6. เปิดซอง / ยื่นข้อเสนอ
+    <span class="step-arrow">▼</span>
+    <div class="step-content">
+        <p><span class="badge badge-material">พัสดุ</span> ตรวจสอบคุณสมบัติเบื้องต้น</p>
+        <p><span class="badge badge-legal">กฎหมาย</span> รับรองการเปิดซองตามขั้นตอน</p>
+    </div>
+</div>
+
+<!-- STEP 7 -->
+<div class="flowchart-step">
+    7. ประเมินผลข้อเสนอ
+    <span class="step-arrow">▼</span>
+    <div class="step-content">
+        <p><span class="badge badge-material">พัสดุ</span> ตรวจเอกสารประกอบราคา</p>
+        <p><span class="badge badge-contract">สัญญา</span> ประเมินความเสี่ยงด้านสัญญา</p>
+    </div>
+</div>
+
+<!-- STEP 8 -->
+<div class="flowchart-step">
+    8. พิจารณาผลและจัดทำรายงาน
+    <span class="step-arrow">▼</span>
+    <div class="step-content">
+        <p><span class="badge badge-material">พัสดุ</span> จัดทำรายงานผลการพิจารณา</p>
+        <p><span class="badge badge-legal">กฎหมาย</span> ตรวจสอบความครบถ้วน</p>
+    </div>
+</div>
+
+<!-- STEP 9 -->
+<div class="flowchart-step">
+    9. ขออนุมัติผลผู้ชนะ
+    <span class="step-arrow">▼</span>
+    <div class="step-content">
+        <p><span class="badge badge-material">พัสดุ</span> ส่งเสนออนุมัติตามอำนาจ</p>
+    </div>
+</div>
+
+<!-- STEP 10 -->
+<div class="flowchart-step">
+    10. แจ้งผู้ชนะและผู้ไม่ผ่าน
+    <span class="step-arrow">▼</span>
+    <div class="step-content">
+        <p><span class="badge badge-material">พัสดุ</span> แจ้งผลในระบบ e-GP</p>
+    </div>
+</div>
+
+<!-- STEP 11 -->
+<div class="flowchart-step">
+    11. ขอหลักประกันสัญญา
+    <span class="step-arrow">▼</span>
+    <div class="step-content">
+        <p><span class="badge badge-contract">สัญญา</span> ตรวจสอบเอกสารประกันสัญญา</p>
+    </div>
+</div>
+
+<!-- STEP 12 -->
+<div class="flowchart-step">
+    12. ทำสัญญา / ออกใบสั่งซื้อ
+    <span class="step-arrow">▼</span>
+    <div class="step-content">
+        <p><span class="badge badge-material">พัสดุ</span> ออกใบสั่งซื้อ (PO)</p>
+        <p><span class="badge badge-contract">สัญญา</span> จัดทำสัญญาอย่างเป็นทางการ</p>
+    </div>
+</div>
+
+<!-- STEP 13 -->
+<div class="flowchart-step">
+    13. ส่งมอบงาน / ตรวจรับงาน
+    <span class="step-arrow">▼</span>
+    <div class="step-content">
+        <p><span class="badge badge-material">พัสดุ</span> ตรวจรับพัสดุตาม TOR</p>
+        <p><span class="badge badge-legal">กฎหมาย</span> ตรวจสอบความโปร่งใสของกระบวนการ</p>
+    </div>
+</div>
+
+<!-- STEP 14 -->
+<div class="flowchart-step">
+    14. ปิดโครงการ / เก็บเอกสาร
+    <span class="step-arrow">▼</span>
+    <div class="step-content">
+        <p><span class="badge badge-material">พัสดุ</span> สรุปเอกสารทั้งหมดเข้าคลังข้อมูล</p>
+        <p><span class="badge badge-contract">สัญญา</span> เก็บสำเนาสัญญา</p>
+        <p><span class="badge badge-legal">กฎหมาย</span> เก็บเอกสารตามข้อบังคับ</p>
+    </div>
+</div>
+
+    <!-- FOOTER -->
+    <div class="footer-official">
+        © 2025 แผนกพัสดุและสัญญา | กรมทางหลวง  
+        <br>พัฒนาเพื่อใช้ภายในหน่วยงานเท่านั้น
+    </div>
+
+    <!-- ======================
+         SCRIPT (ไม่แตะโครงสร้างเดิม)
+    ======================= -->
+    <script>
+        /* Accordion */
+        const steps = document.querySelectorAll('.flowchart-step');
+
+        steps.forEach(step => {
+            step.addEventListener('click', () => {
+                const content = step.querySelector('.step-content');
+                const arrow = step.querySelector('.step-arrow');
+
+                if (content) {
+                    const isOpen = content.style.display === "block";
+                    content.style.display = isOpen ? "none" : "block";
+                    arrow.style.transform = isOpen ? "rotate(0deg)" : "rotate(180deg)";
+                }
+            });
+        });
+
+        /* Dark Mode */
+        const darkBtn = document.getElementById("darkBtn");
+
+        darkBtn.addEventListener("click", () => {
+            document.body.classList.toggle("dark");
+            darkBtn.textContent = 
+                document.body.classList.contains("dark") 
+                ? "Light Mode" 
+                : "Dark Mode";
+        });
+    </script>
+</body>
+</html>
